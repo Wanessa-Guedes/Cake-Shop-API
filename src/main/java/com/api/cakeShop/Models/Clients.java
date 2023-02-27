@@ -2,6 +2,7 @@ package com.api.cakeShop.Models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "clients")
@@ -18,6 +19,7 @@ public class Clients {
     private String address;
 
     @NotBlank(message = "Telefone não pode estar em branco")
+    @Size(min = 10, max = 11)
     private String phone;
 
     @OneToOne(mappedBy = "clients")

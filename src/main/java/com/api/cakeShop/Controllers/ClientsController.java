@@ -1,10 +1,7 @@
 package com.api.cakeShop.Controllers;
 
-import com.api.cakeShop.Controllers.Dto.CakesDto;
-import com.api.cakeShop.Middlewares.ErrorHandler400;
-import com.api.cakeShop.Middlewares.ErrorHandler409;
-import com.api.cakeShop.Models.Cakes;
-import com.api.cakeShop.Services.CakesService;
+import com.api.cakeShop.Models.Clients;
+import com.api.cakeShop.Services.ClientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/cakes")
-public class CakesController {
+@RequestMapping("/clients")
+public class ClientsController {
 
     @Autowired
-    CakesService cakesService;
+    ClientsService clientsService;
 
     @PostMapping
-    public ResponseEntity<?> PostCakes(@Valid @RequestBody CakesDto req) throws ErrorHandler400, ErrorHandler409 {
-        cakesService.PostCakes(req);
-
+    public ResponseEntity<?> PostClients( @Valid @RequestBody Clients req){
+        clientsService.PostClient(req);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
 }
