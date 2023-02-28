@@ -85,4 +85,13 @@ public class OrdersService {
         }
         return order;
     }
+
+    public void PatchDeliveryOrder(long id) throws ErrorHandler404 {
+        Orders orders = ordersRepository.findById(id);
+        if(orders == null) {
+            throw new ErrorHandler404("404", "Pedido não existente");
+        }
+        orders.setDelivered(true);
+        ordersRepository.save(orders);
+    }
 }

@@ -1,5 +1,7 @@
 package com.api.cakeShop.Models;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -23,6 +25,9 @@ public class Orders {
 
     private float totalPrice;
 
+    @Column(columnDefinition = "boolean default false")
+    private boolean isDelivered = false;
+
     @ManyToOne
     @JoinColumn(name = "clients_id")
     private Clients clients;
@@ -30,8 +35,6 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "cakes_id")
     private Cakes cakes;
-
-    private Boolean isDelivered;
 
     public long getId() {
         return id;
@@ -65,6 +68,14 @@ public class Orders {
         this.totalPrice = totalPrice;
     }
 
+    public Boolean getDelivered() {
+        return isDelivered;
+    }
+
+    public void setDelivered(Boolean delivered) {
+        isDelivered = delivered;
+    }
+
     public Clients getClients() {
         return clients;
     }
@@ -80,4 +91,5 @@ public class Orders {
     public void setCakes(Cakes cakes) {
         this.cakes = cakes;
     }
+
 }

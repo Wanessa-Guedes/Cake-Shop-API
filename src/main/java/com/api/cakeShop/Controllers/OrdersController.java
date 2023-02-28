@@ -39,4 +39,10 @@ public class OrdersController {
 
         return ResponseEntity.status(HttpStatus.OK).body(order);
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> PatchDeliveryOrder(@PathVariable(value = "id") long id) throws ErrorHandler404 {
+        ordersService.PatchDeliveryOrder(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
