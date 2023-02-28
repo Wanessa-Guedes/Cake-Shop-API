@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface FlavoursRepository extends JpaRepository<Flavours, Long> {
 
     Flavours findByName(String name);
+
+    Flavours findById(long id);
 }

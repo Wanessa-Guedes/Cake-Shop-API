@@ -15,6 +15,8 @@ public class CakesDto {
     @NotBlank(message = "Descrição não pode estar em branco")
     private String description;
 
+    private long flavourId;
+
     public String getName() {
         return name;
     }
@@ -37,5 +39,13 @@ public class CakesDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getFlavourId() {
+        return flavourId;
+    }
+
+    public void setFlavourId(long flavourId) {
+        this.flavourId = flavourId;
     }
 }

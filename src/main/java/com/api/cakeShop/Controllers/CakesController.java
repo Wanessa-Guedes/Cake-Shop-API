@@ -2,6 +2,7 @@ package com.api.cakeShop.Controllers;
 
 import com.api.cakeShop.Controllers.Dto.CakesDto;
 import com.api.cakeShop.Middlewares.ErrorHandler400;
+import com.api.cakeShop.Middlewares.ErrorHandler404;
 import com.api.cakeShop.Middlewares.ErrorHandler409;
 import com.api.cakeShop.Models.Cakes;
 import com.api.cakeShop.Services.CakesService;
@@ -23,7 +24,9 @@ public class CakesController {
     CakesService cakesService;
 
     @PostMapping
-    public ResponseEntity<?> PostCakes(@Valid @RequestBody CakesDto req) throws ErrorHandler400, ErrorHandler409 {
+    public ResponseEntity<?> PostCakes(@Valid @RequestBody
+                                           CakesDto req) throws ErrorHandler400,
+                                            ErrorHandler409, ErrorHandler404 {
         cakesService.PostCakes(req);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

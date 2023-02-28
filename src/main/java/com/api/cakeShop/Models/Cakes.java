@@ -58,4 +58,12 @@ public class Cakes {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Flavours getFlavours() {
+        return flavours;
+    }
+
+    public void setFlavours(Flavours flavours) {
+        this.flavours = flavours;
+    }
 }
