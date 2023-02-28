@@ -77,4 +77,12 @@ public class OrdersService {
             return orders;
         }
     }
+
+    public Orders GetOrdersById(long id) throws ErrorHandler404 {
+        Orders order = ordersRepository.findById(id);
+        if(order == null){
+            throw new ErrorHandler404("404", "Pedido não cadastrado");
+        }
+        return order;
+    }
 }

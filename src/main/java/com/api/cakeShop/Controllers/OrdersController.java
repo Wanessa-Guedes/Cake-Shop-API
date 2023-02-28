@@ -5,6 +5,7 @@ import com.api.cakeShop.Middlewares.ErrorHandler400;
 import com.api.cakeShop.Middlewares.ErrorHandler404;
 import com.api.cakeShop.Models.Orders;
 import com.api.cakeShop.Services.OrdersService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +30,13 @@ public class OrdersController {
                                                           String date) throws ErrorHandler404 {
         Iterable<Orders> orders = ordersService.GetAllOrders(date);
         return ResponseEntity.status(HttpStatus.OK).body(orders);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Orders> GetOrderById(@PathVariable(value = "id")
+                                                   long id) throws ErrorHandler404 {
+        Orders order = ordersService.GetOrdersById(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body(order);
     }
 }

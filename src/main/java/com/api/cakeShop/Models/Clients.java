@@ -22,8 +22,8 @@ public class Clients {
     @Size(min = 10, max = 11)
     private String phone;
 
-    @OneToOne(mappedBy = "clients")
-    private Orders orders;
+//    @OneToMany(mappedBy = "clients")
+//    private Orders orders;
 
     public long getId() {
         return id;

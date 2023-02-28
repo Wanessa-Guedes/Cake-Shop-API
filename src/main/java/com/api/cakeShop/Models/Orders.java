@@ -23,11 +23,11 @@ public class Orders {
 
     private float totalPrice;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "clients_id")
     private Clients clients;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cakes_id")
     private Cakes cakes;
 

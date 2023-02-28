@@ -20,8 +20,8 @@ public class Cakes {
     @NotBlank(message = "Descrição não pode estar em branco")
     private String description;
 
-    @OneToOne(mappedBy = "cakes")
-    private Orders orders;
+//    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cakes")
+//    private Orders orders;
 
     public long getId() {
         return id;
