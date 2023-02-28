@@ -20,6 +20,10 @@ public class Cakes {
     @NotBlank(message = "Descrição não pode estar em branco")
     private String description;
 
+    @OneToOne
+    @JoinColumn(name="flavours_id")
+    private Flavours flavours;
+
 //    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cakes")
 //    private Orders orders;
 
