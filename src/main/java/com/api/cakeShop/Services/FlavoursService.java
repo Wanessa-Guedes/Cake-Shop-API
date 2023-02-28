@@ -1,5 +1,6 @@
 package com.api.cakeShop.Services;
 
+import com.api.cakeShop.Controllers.Dto.PostFlavourDto;
 import com.api.cakeShop.Middlewares.ErrorHandler404;
 import com.api.cakeShop.Middlewares.ErrorHandler409;
 import com.api.cakeShop.Models.Flavours;
@@ -13,13 +14,13 @@ public class FlavoursService {
     @Autowired
     FlavoursRepository flavoursRepository;
 
-    public void PostFlavour(String name) throws ErrorHandler409 {
-        Flavours flavour = flavoursRepository.findByName(name);
+    public void PostFlavour(PostFlavourDto req) throws ErrorHandler409 {
+        Flavours flavour = flavoursRepository.findByName(req.getName());
         if(flavour != null){
             throw new ErrorHandler409("409", "Sabor já cadastrado");
         }
         Flavours newFlavour = new Flavours();
-        newFlavour.setName(name);
+        newFlavour.setName(req.getName());
         flavoursRepository.save(newFlavour);
     }
 }

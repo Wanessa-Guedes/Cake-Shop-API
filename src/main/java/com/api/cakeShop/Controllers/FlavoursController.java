@@ -1,5 +1,6 @@
 package com.api.cakeShop.Controllers;
 
+import com.api.cakeShop.Controllers.Dto.PostFlavourDto;
 import com.api.cakeShop.Middlewares.ErrorHandler409;
 import com.api.cakeShop.Services.FlavoursService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class FlavoursController {
     FlavoursService flavoursService;
 
     @PostMapping
-    public ResponseEntity<?> PostFlavour(@RequestBody String name) throws ErrorHandler409 {
-        flavoursService.PostFlavour(name);
+    public ResponseEntity<?> PostFlavour(@RequestBody PostFlavourDto req) throws ErrorHandler409 {
+        flavoursService.PostFlavour(req);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

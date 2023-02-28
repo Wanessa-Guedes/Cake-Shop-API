@@ -31,6 +31,8 @@ public class Orders {
     @JoinColumn(name = "cakes_id")
     private Cakes cakes;
 
+    private Boolean isDelivered;
+
     public long getId() {
         return id;
     }
