@@ -1,7 +1,10 @@
 package com.api.cakeShop.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 @Entity
@@ -12,7 +15,8 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "Quantidade não pode estar em branco")
+    @Min(value = 1, message = "Quantidade precisa ser maior do que 1")
+    @Max(value = 4, message = "Quantidade precisa ser menor ou igual a 4")
     private int quantity;
 
     private Timestamp createdAt;
@@ -57,5 +61,21 @@ public class Orders {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Clients getClients() {
+        return clients;
+    }
+
+    public void setClients(Clients clients) {
+        this.clients = clients;
+    }
+
+    public Cakes getCakes() {
+        return cakes;
+    }
+
+    public void setCakes(Cakes cakes) {
+        this.cakes = cakes;
     }
 }

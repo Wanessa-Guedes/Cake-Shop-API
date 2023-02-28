@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface CakesRepository extends JpaRepository<Cakes, Long> {
 
     Cakes findByName(String name);
+
+    Cakes findById(long id);
 }
